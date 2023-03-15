@@ -65,12 +65,16 @@ class RegisterFragment : Fragment() {
     fun onClickRegister() {
         binding.tvError.text = ""
         binding.pbLoader.visibility = View.VISIBLE
+        binding.btRegister.visibility = View.INVISIBLE
+
 
         var name = binding.tietName.text.toString().trim()
         var email = binding.tietEmail.text.toString().trim()
         var password = binding.tietPassword.text.toString().trim()
         if ( !validateFields(name, email, password) ) {
             binding.pbLoader.visibility = View.GONE
+            binding.btRegister.visibility = View.VISIBLE
+
             return
         }
 
@@ -101,6 +105,8 @@ class RegisterFragment : Fragment() {
                     }
 
                     binding.pbLoader.visibility = View.GONE
+                    binding.btRegister.visibility = View.VISIBLE
+
 
                     //Log.d("RESPUESTA", "Respuesta del servidor: ${response.toString()}")
                     //Log.d("RESPUESTA", "Datos: ${response.body().toString()}")
@@ -108,6 +114,8 @@ class RegisterFragment : Fragment() {
 
                 override fun onFailure(call: Call<GenericResponse>, t: Throwable) {
                     binding.pbLoader.visibility = View.GONE
+                    binding.btRegister.visibility = View.VISIBLE
+
 
                     Toast.makeText(
                         context,

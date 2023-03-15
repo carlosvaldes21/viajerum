@@ -40,7 +40,11 @@ class DetailActivity : AppCompatActivity() {
         )
         binding.rvReviews.layoutManager = LinearLayoutManager(this@DetailActivity)
         binding.rvReviews.adapter = ReviewAdapter(this@DetailActivity, place.reviews)
-
+        if ( place.wasReviewed ) {
+            binding.buttonRating.text = "Editar reseña"
+        } else {
+            binding.buttonRating.text = "Agregar reseña"
+        }
         binding.buttonDirections.setOnClickListener {
             val strUri =
                 "http://maps.google.com/maps?q=loc:${place.latitude},${place.longitude} (${place.name})"

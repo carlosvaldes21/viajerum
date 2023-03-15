@@ -20,9 +20,6 @@
             android:name=".views.AddReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".views.AddPlaceActivity"
-            android:exported="false" />
-        <activity
             android:name=".views.DetailActivity"
             android:exported="false" />
         <activity

@@ -68,11 +68,15 @@ class LoginFragment : Fragment() {
     fun onClickLogin() {
         binding.tvError.text = ""
         binding.pbLoader.visibility = View.VISIBLE
+        binding.btLogin.visibility = View.INVISIBLE
+
 
         var email = binding.tietEmail.text.toString().trim()
         var password = binding.tietPassword.text.toString().trim()
         if ( !validateFields(email, password) ) {
             binding.pbLoader.visibility = View.GONE
+            binding.btLogin.visibility = View.VISIBLE
+
             return
         }
 
@@ -103,6 +107,8 @@ class LoginFragment : Fragment() {
                     }
 
                     binding.pbLoader.visibility = View.GONE
+                    binding.btLogin.visibility = View.VISIBLE
+
 
                     //Log.d("RESPUESTA", "Respuesta del servidor: ${response.toString()}")
                     //Log.d("RESPUESTA", "Datos: ${response.body().toString()}")
@@ -110,6 +116,8 @@ class LoginFragment : Fragment() {
 
                 override fun onFailure(call: Call<GenericResponse>, t: Throwable) {
                     binding.pbLoader.visibility = View.GONE
+                    binding.btLogin.visibility = View.VISIBLE
+
 
                     Toast.makeText(
                         context,

@@ -16,5 +16,6 @@ data class Place(
     @SerializedName("created_at"  ) var createdAt   : String?            = null,
     @SerializedName("updated_at"  ) var updatedAt   : String?            = null,
     @SerializedName("reviews"     ) var reviews     : ArrayList<Review> = arrayListOf(),
-    @SerializedName("rating"      ) var rating      : Float
+    @SerializedName("rating"      ) var rating      : Float,
+    @SerializedName("was_reviewed") var wasReviewed : Boolean
 ) : java.io.Serializable

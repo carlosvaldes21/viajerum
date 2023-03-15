@@ -81,7 +81,8 @@ class AddReviewActivity : AppCompatActivity() {
 
     private fun review(comment: String, rating: String, placeId: String) {
 
-
+        binding.pbLoader.visibility = View.VISIBLE
+        binding.buttonAddReview.visibility = View.INVISIBLE
         var token = AuthHelpers.getToken(this@AddReviewActivity)
         CoroutineScope(Dispatchers.IO).launch {
 
@@ -95,8 +96,6 @@ class AddReviewActivity : AppCompatActivity() {
                     response: Response<GenericResponse>
                 ) {
 
-                    Log.d("RESPUESTA", "Respuesta del servidor: ${response.toString()}")
-                    Log.d("RESPUESTA", "Datos: ${response.body()!!.data.places.toString()}")
                     if ( response.body() == null ) {
                         Toast.makeText(this@AddReviewActivity, "Tu sesión ha expirado, inténtalo de nuevo", Toast.LENGTH_LONG).show()
 
@@ -104,8 +103,6 @@ class AddReviewActivity : AppCompatActivity() {
                         return
                     }
 
-                    Log.d("RESPUESTA", "Respuesta del servidor: ${response.toString()}")
-                    Log.d("RESPUESTA", "Datos: ${response.body()!!.data.places.toString()}")
                     if ( response.body()!!.code == 200 ) {
                         Toast.makeText(this@AddReviewActivity, "Tu opinión fue agregada correctamente", Toast.LENGTH_LONG).show()
                         val intent = Intent(this@AddReviewActivity, MainActivity::class.java)
@@ -115,11 +112,13 @@ class AddReviewActivity : AppCompatActivity() {
                     }
 
                     binding.tvError.text = response.body()!!.message
-                    //binding.pbLoader.visibility = View.GONE
+                    binding.pbLoader.visibility = View.GONE
+                    binding.buttonAddReview.visibility = View.VISIBLE
                 }
 
                 override fun onFailure(call: Call<GenericResponse>, t: Throwable) {
-                    //binding.pbLoader.visibility = View.GONE
+                    binding.pbLoader.visibility = View.GONE
+                    binding.buttonAddReview.visibility = View.VISIBLE
                     Toast.makeText(
                         this@AddReviewActivity,
                         "Verifica tu conexión a internet. ${t.message}",
