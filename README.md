@@ -11,7 +11,7 @@ Viajerum es una aplicación móvil desarrollada para Android con Kotlin, que per
 ## Cómo funciona
 Al abrir Viajerum, deberás registrarte o iniciar sesión. La aplicación detectará tu ubicación actual y te mostrará una lista de lugares interesantes cercanos. Puedes ver información detallada sobre cada lugar, incluyendo el costo aproximado por persona, una descripción y las reseñas de otros usuarios.
 
-Si decides visitar uno de los lugares, puedes utilizar el botón de como llegar en la aplicación para llegar fácilmente. Después de visitar un lugar, puedes agregar tu propia reseña para ayudar a otros usuarios a descubrir nuevos lugares.
+Si decides visitar uno de los lugares, puedes utilizar el botón de "como llegar" en la aplicación, para llegar fácilmente. Después de visitar un lugar, puedes agregar tu propia reseña para ayudar a otros usuarios a descubrir nuevos lugares.
 
 ## Tecnologías utilizadas
 Kotlin para el desarrollo de la aplicación
