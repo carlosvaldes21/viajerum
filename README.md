@@ -2,11 +2,11 @@
 Viajerum es una aplicación móvil desarrollada para Android con Kotlin, que permite a los usuarios descubrir lugares nuevos y emocionantes que se encuentran cerca de ellos. Ya sea que estés de viaje o simplemente buscando una nueva experiencia cerca de casa, Viajerum te ayudará a encontrarla.
 
 ## Características
-Encuentra lugares interesantes cerca de tu ubicación actual
-Descubre los costos aproximados por persona para cada destino
-Abre la ubicación del destino en google maps con un click
-Lee las reseñas de otros usuarios para saber lo que piensan del lugar
-Agrega tus propias reseñas y opiniones
+- Encuentra lugares interesantes cerca de tu ubicación actual
+- Descubre los costos aproximados por persona para cada destino
+- Abre la ubicación del destino en google maps con un click
+- Lee las reseñas de otros usuarios para saber lo que piensan del lugar
+- Agrega tus propias reseñas y opiniones
 
 ## Cómo funciona
 Al abrir Viajerum, deberás registrarte o iniciar sesión. La aplicación detectará tu ubicación actual y te mostrará una lista de lugares interesantes cercanos. Puedes ver información detallada sobre cada lugar, incluyendo el costo aproximado por persona, una descripción y las reseñas de otros usuarios.
