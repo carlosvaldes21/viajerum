@@ -1,13 +1,11 @@
 package com.carlosvaldes.viajerum.views.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
-import com.carlosvaldes.viajerum.databinding.ActivityMainBinding
+import com.carlosvaldes.viajerum.MainActivity
 import com.carlosvaldes.viajerum.databinding.PlaceItemBinding
 import com.carlosvaldes.viajerum.models.Place
 
@@ -25,7 +23,6 @@ class PlaceAdapter(private val context: Context, private var items : ArrayList<P
     }
 
     override fun getItemCount(): Int {
-        Log.e("ITEMS", "${items.size}")
         return items.size
     }
 
@@ -37,5 +34,9 @@ class PlaceAdapter(private val context: Context, private var items : ArrayList<P
         holder.tvPlaceName.text = items[position].name
         holder.tvPlaceDescription.text = items[position].description
         holder.tvPlaceCost.text = "Promedio: $${items[position].cost}"
+
+        holder.itemView.setOnClickListener{
+            if(context is MainActivity) context.onTapPlace(items[position])
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.carlosvaldes.viajerum.views.auth.fragments
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,8 @@ import com.carlosvaldes.viajerum.R
 import com.carlosvaldes.viajerum.databinding.FragmentLoginBinding
 import com.carlosvaldes.viajerum.databinding.FragmentRegisterBinding
 import com.carlosvaldes.viajerum.helpers.AuthHelpers
+import com.carlosvaldes.viajerum.helpers.Helpers
+import com.carlosvaldes.viajerum.models.AuthModel
 import com.carlosvaldes.viajerum.models.GenericResponse
 import com.carlosvaldes.viajerum.network.RetrofitService
 import com.carlosvaldes.viajerum.network.ViajerumApi
@@ -39,7 +42,6 @@ class RegisterFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -53,6 +55,7 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRegisterBinding.bind(view)
+        Helpers.setupUI(binding.root, activity as Activity)
 
         binding.btRegister.setOnClickListener {
             onClickRegister()
@@ -60,10 +63,14 @@ class RegisterFragment : Fragment() {
     }
 
     fun onClickRegister() {
+        binding.tvError.text = ""
+        binding.pbLoader.visibility = View.VISIBLE
+
         var name = binding.tietName.text.toString().trim()
         var email = binding.tietEmail.text.toString().trim()
         var password = binding.tietPassword.text.toString().trim()
         if ( !validateFields(name, email, password) ) {
+            binding.pbLoader.visibility = View.GONE
             return
         }
 
@@ -78,21 +85,30 @@ class RegisterFragment : Fragment() {
                     call: Call<GenericResponse>,
                     response: Response<GenericResponse>
                 ) {
-                    AuthHelpers.storeToken(response.body()!!.token!!, activity)
 
-                    activity?.let{
-                        val intent = Intent (it, MainActivity::class.java)
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        it.startActivity(intent)
-                        it.finish()
+                    if ( response.body()!!.code == 200 ) {
+                        AuthHelpers.storeToken(response.body()!!.token, activity)
 
+                        activity?.let{
+                            val intent = Intent (it, MainActivity::class.java)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            it.startActivity(intent)
+                            it.finish()
+
+                        }
+                    } else {
+                        binding.tvError.text = response.body()!!.message
                     }
 
-                    Log.d("RESPUESTA", "Respuesta del servidor: ${response.toString()}")
-                    Log.d("RESPUESTA", "Datos: ${response.body().toString()}")
+                    binding.pbLoader.visibility = View.GONE
+
+                    //Log.d("RESPUESTA", "Respuesta del servidor: ${response.toString()}")
+                    //Log.d("RESPUESTA", "Datos: ${response.body().toString()}")
                 }
 
                 override fun onFailure(call: Call<GenericResponse>, t: Throwable) {
+                    binding.pbLoader.visibility = View.GONE
+
                     Toast.makeText(
                         context,
                         "No hay conexión. Error: ${t.message}",
