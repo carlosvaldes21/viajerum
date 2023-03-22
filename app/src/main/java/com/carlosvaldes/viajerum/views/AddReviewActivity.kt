@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import com.carlosvaldes.viajerum.MainActivity
 import com.carlosvaldes.viajerum.databinding.ActivityAddReviewBinding
 import com.carlosvaldes.viajerum.helpers.AuthHelpers
+import com.carlosvaldes.viajerum.helpers.Helpers.Companion.isOnline
 import com.carlosvaldes.viajerum.helpers.Helpers.Companion.setupUI
 import com.carlosvaldes.viajerum.models.GenericResponse
 import com.carlosvaldes.viajerum.models.Place
@@ -62,8 +63,11 @@ class AddReviewActivity : AppCompatActivity() {
             //binding.pbLoader.visibility = View.GONE
             return
         }
-
-        review(comment, rating.toString(), placeId.toString())
+        if ( isOnline(this@AddReviewActivity) ) {
+            review(comment, rating.toString(), placeId.toString())
+        } else {
+            Toast.makeText(this@AddReviewActivity, "Para agregar una reseña, debes conectarte a internet", Toast.LENGTH_LONG).show()
+        }
     }
 
     fun validateFields(comment: String, rating: Double) : Boolean {

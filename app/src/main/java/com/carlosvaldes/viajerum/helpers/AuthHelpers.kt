@@ -68,6 +68,10 @@ class AuthHelpers {
                 val intent = Intent(activity, AuthActivity::class.java)
                 activity.startActivity(intent)
                 activity.finish()
+
+                if ( !Helpers.isOnline(activity.baseContext) ) {
+                    return
+                }
                 CoroutineScope(Dispatchers.IO).launch {
 
                     //Llamamos al servicio de retrofit

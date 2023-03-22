@@ -80,6 +80,13 @@ class LoginFragment : Fragment() {
             return
         }
 
+        if (!Helpers.isOnline(requireContext())) {
+            binding.pbLoader.visibility = View.GONE
+            binding.btLogin.visibility = View.VISIBLE
+            Toast.makeText(activity, "Para agregar iniciar sesión, debes conectarte a internet", Toast.LENGTH_LONG).show()
+            return
+        }
+
         CoroutineScope(Dispatchers.IO).launch {
 
             //Llamamos al servicio de retrofit

@@ -78,6 +78,13 @@ class RegisterFragment : Fragment() {
             return
         }
 
+        if (!Helpers.isOnline(requireContext())) {
+            binding.pbLoader.visibility = View.GONE
+            binding.btRegister.visibility = View.VISIBLE
+            Toast.makeText(activity, "Para agregar registrarte, debes conectarte a internet", Toast.LENGTH_LONG).show()
+            return
+        }
+
         CoroutineScope(Dispatchers.IO).launch {
 
             //Llamamos al servicio de retrofit
