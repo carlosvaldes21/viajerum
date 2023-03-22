@@ -28,6 +28,10 @@ Utilizamos el sdk seleccionado, para que la mayoría de usuarios tengan acceso a
 
 Para acceder a la aplicación, no se necesitan credenciales especificas, dado que pueden registrarse para generar un usuario y probar con el mismo.
 
+## Frameworks y paquetes
+
+Utilicé glide para el consumo de imágenes y retrofit para realizar las peticiones a la API.
+
 ## Imágenes
 
 <img src="/1.jpg" align="left" width="150">
