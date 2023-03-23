@@ -218,7 +218,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
                         //Si el usuario no quiere que nunca se le vuelva a preguntar por el permiso
                         Toast.makeText(
                             this,
-                            "El permiso a la localización se ha negado permanentemente",
+                            "La localización es necesaria para el funcionamiento. La app se cerrará.",
                             Toast.LENGTH_LONG
                         ).show()
                         finish()

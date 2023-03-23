@@ -6,12 +6,12 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#FFFFFF</color>
     <color name="blue">#2196F3</color>
     <color name="yellow">#FFC107</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#0B0B0B</color>
     <color name="white_always">#FFFFFF</color>
     <color name="text_shadow">#7F000000</color>
-    <color name="bg_gray">#E0E9ED</color>
+    <color name="bg_gray">#606060</color>
     <color name="error">#F44336</color>
 </resources>

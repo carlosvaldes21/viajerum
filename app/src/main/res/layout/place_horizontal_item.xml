@@ -22,7 +22,7 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:textColor="@color/white"
+            android:textColor="@color/white_always"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"

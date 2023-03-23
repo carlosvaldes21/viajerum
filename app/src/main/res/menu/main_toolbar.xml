@@ -11,6 +11,7 @@
         android:orderInCategory="300"
         android:title="Cerrar sesión"
         android:icon="@drawable/ic_logout"
+        app:iconTint="@color/blue"
         app:showAsAction="ifRoom"></item>
 
 </menu>
