@@ -14,9 +14,23 @@ Al abrir Viajerum, deberás registrarte o iniciar sesión. La aplicación detect
 Si decides visitar uno de los lugares, puedes utilizar el botón de "como llegar" en la aplicación, para llegar fácilmente. Después de visitar un lugar, puedes agregar tu propia reseña para ayudar a otros usuarios a descubrir nuevos lugares.
 
 ## Tecnologías utilizadas
-Kotlin para el desarrollo de la aplicación
-Android Studio como IDE de desarrollo
-Backend desarrollado con laravel y mysql para el almacenamiento de datos y autenticación de usuarios
+- Kotlin para el desarrollo de la aplicación
+- Android Studio como IDE de desarrollo
+- Backend desarrollado con laravel y mysql para el almacenamiento de datos y autenticación de usuarios
+
+## Descripción del logo
+El logo representa el amor por los viajes que tienen muchas personas, es por eso que viajerum se identificó con ese logo.
+
+## Justificación
+Se eligió la posición vertical debido a que puede ser más fácil de usar en dispositivos móviles, que es donde la mayoría de los usuarios acceden a la aplicación. Al diseñar la interfaz de usuario en modo portrait, se puede aprovechar mejor el espacio vertical de la pantalla, lo que permite mostrar más contenido sin tener que desplazarse horizontalmente. Además, puede facilitar la navegación a través de la aplicación, ya que los elementos están dispuestos de forma más clara y organizada.
+
+Utilizamos el sdk seleccionado, para que la mayoría de usuarios tengan acceso a la aplicación.
+
+Para acceder a la aplicación, no se necesitan credenciales especificas, dado que pueden registrarse para generar un usuario y probar con el mismo.
+
+## Frameworks y paquetes
+
+Utilicé glide para el consumo de imágenes y retrofit para realizar las peticiones a la API.
 
 ## Imágenes
 
